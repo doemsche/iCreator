@@ -15,13 +15,16 @@ Template.map.rendered = ->
 		
 
 	google.maps.event.addListener map, "dblclick", (event) ->
+
+		Session.set 'tmp-latLong', event.latLng
+		console.log Session.get 'tmp-latLong'
 		fragment = Meteor.render( ->
 			tmp = Template["incidentNew"]() # this calls the template and returns the HTML.
 		)
 		document.body.appendChild(fragment);
 		$('#myModal').modal()
 
-		#$("body").html( fragment );
+
 		#placeMarker(event.latLng, console.log('point added to db') )
 
 	placeMarker = (point, callback) ->
@@ -33,6 +36,4 @@ Template.map.rendered = ->
 		
 
 	centerMarker = (map,point) ->
-		 map.setCenter(point);
-
-
+		 map.setCenter(point)
