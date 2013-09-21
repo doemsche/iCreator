@@ -18,3 +18,8 @@ if @Incidents.find().count() is 0
     title: "Incidnet 04"
     lat: 10.77
     long: 9.884
+
+  @Incidents.insert
+    title: "Incidnet 04"
+    lat: 18.77
+    long: 23.884

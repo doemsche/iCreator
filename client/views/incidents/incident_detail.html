@@ -1,0 +1,14 @@
+<template name="incidentDetail">
+	<div id="incident-details">
+	{{#if incident}}
+	  {{#with incident}}
+		<div>{{lat}}</div>
+		<div>{{long}}</div>
+		<div>Title bla</div>
+		<div>Icident bloi</div>
+	  {{/with}}
+	{{else}}
+		<div>No incidnent selected </div>
+	{{/if}}
+	</div>
+</template>

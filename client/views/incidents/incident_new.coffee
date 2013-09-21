@@ -1,0 +1,4 @@
+Template.incidentNew.helpers
+	tmpLatLong: ->
+
+

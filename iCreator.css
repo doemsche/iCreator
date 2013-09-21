@@ -1,1 +1,35 @@
+.hero-unit{
+	padding:30px;
+}
 #map-canvas { height: 500px; width:100%; margin-right:200px; }
+
+#incidents-container{
+	float:left;
+}
+
+#map-container{
+
+}
+
+#map-container.with-sidebar{
+	margin-left:150px;
+}
+
+.incident-content{
+	list-style: none
+}
+
+
+#incident-details .open{
+
+}
+
+#incident-details{
+	right: 0;
+	z-index: 1000;
+	position: fixed;
+	background-color: #e2e1e4;
+	top: 250px;
+	box-shadow: -3px 4px 2px #777;
+	width: 400px;
+}

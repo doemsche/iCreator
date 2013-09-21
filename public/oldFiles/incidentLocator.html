@@ -1,0 +1,98 @@
+
+<head>
+  <title>IncidentLocator</title>
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+      html { height: 100% }
+      body { height: 100%; margin: 0; padding: 0 }
+      #map-canvas { height: 500px; width:500px; margin-right:200px; }
+    </style>
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+
+   <script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key={APIKEy}&sensor=false">
+	</script>
+
+    </script>
+
+</head>
+
+<body>
+	<div class="container">
+		<div class="row">
+			<div style="float:left">
+
+				<div id="list">
+					{{> geoList }}
+				</div>
+
+			</div>
+			<div id="details">
+					{{> details }}
+				</div>
+			<div id="map-container">
+				{{> map }}
+			</div>
+
+		</div>
+	</div>
+</body>
+
+<template name="geoList">
+ 	{{#each geoLocations}}
+ 		<div class="incident icon-bug icon-2x" id="{{_id}}"></div><br/>
+ 		{{!lat}} {{!long}} {{!txt}} 
+ 	{{/each}}
+ 	<div id="form">
+		lat:<input type="text" id="lat" value="" /> <br/>
+		Long:<input type="text" id="long" value="" /><br/>
+		txt:<input type="text" id="txt" value="" /><br/>
+		 <div class="category btn btn-inverse" id="btn_addObj">Add</div>
+	</div>
+</template>
+
+<template name="details">
+<div class="panel panel-default">
+  <div class="panel-body">
+
+		{{#if incident}}
+	      {{#with incident}}
+
+	      	{{#if incident.txt}}
+	      		<button type="button" class="btn btn-success">
+		      		{{incident.txt}}
+		      	</button>
+		     {{else}}
+		     	<input style="color:pink;" type="text" id="updatetxt" placeholder="No name set yet, set name!" vlue="" />
+	      	{{/if}}
+
+	      
+	      	<button type="button" class="btn btn-success">
+	      		{{lat}}
+	      	</button>
+	      	<button type="button" class="btn btn-success">
+	      		{{long}}
+	      	</button>
+
+	      	{{#if incident.txt}}
+	      	
+		     {{else}}
+		     	<button type="button" class="btn btn-default" id="btn_updateObj">
+		      		Update
+		      	</button>
+	      	{{/if}}
+
+	      {{/with}}
+	    {{/if}}
+	</div>
+	</div>
+</template>
+
+
+
+<template name="map">
+	<div style="float:right" >
+		<div id="map-canvas"/>
+	</div>
+</template>

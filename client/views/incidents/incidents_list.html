@@ -1,7 +1,27 @@
 <template name="incidentsList">
-  <div class="incidents">
-    {{#each incidents}}
-      {{> incidentItem }}
-    {{/each}}
+	{{# if currentUser }}
+		<div class="hero-unit">
+		  <h2>Welcome to iCreator</h2>
+		  <p>Click on an incident in the side bar to see the details, or double-click on a marker</p>
+		</div>
+		<div id="incidents-container">
+			<ul class="incidents">
+				{{#each incidents}}
+					{{> incidentItem }}
+				{{/each}}
+			</ul>
+		</div>
+	{{else}}
+	<div class="hero-unit">
+	  <h2>Welcome to iCreator</h2>
+	  <p>to see the incident details login or register</p>
+	</div>
+	{{/if}}
+  <div id="map-container" class="{{#if currentUser}}with-sidebar{{/if}}">
+  	    {{> map }}
   </div>
+  {{#if currentUser }}
+  	{{>incidentDetail}}
+  {{/if}}
+  
 </template>
