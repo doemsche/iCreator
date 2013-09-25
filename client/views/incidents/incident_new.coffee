@@ -1,20 +1,20 @@
-Template.incidentNew.helpers
-
 Template.incidentNew.events
 	'click .close-win': ->
 		$('#myModal').modal('hide')
 
 	'click .save-win': ->
-		point = Session.get('tmp-latLong')
+		clearErrors()
+
 		incident = 
 			title: $('#inputTitle').val()
-			lat: point.ob
-			long: point.pb
+			lat: Session.get('tmp-lat')
+			long: Session.get('tmp-lng')
 			descr: $('#areaDescription').val()
 
 		Meteor.call "incident", incident, (error, id) ->
+
 			if error
-				throwError error.message
+				throwError error.reason
 			else
 				$('#myModal').modal('hide')
 				marker = new google.maps.Marker(
@@ -24,7 +24,7 @@ Template.incidentNew.events
 
 
 Template.incidentNew.rendered = ->
-	$('#inputLat').val( Session.get('tmp-latLong').ob )
-	$('#inputLong').val( Session.get('tmp-latLong').pb )
+	$('#inputLat').val( Session.get 'tmp-lat'  )
+	$('#inputLong').val( Session.get 'tmp-lng' )
 
 

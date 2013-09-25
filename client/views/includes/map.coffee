@@ -15,8 +15,8 @@ Template.map.rendered = ->
 		
 
 	google.maps.event.addListener map, "dblclick", (event) ->
-
-		Session.set 'tmp-latLong', event.latLng
+		Session.set 'tmp-lat', event.latLng.lat()
+		Session.set 'tmp-lng', event.latLng.lng()
 		fragment = Meteor.render( ->
 			tmp = Template["incidentNew"]() # this calls the template and returns the HTML.
 		)
