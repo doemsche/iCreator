@@ -12,14 +12,15 @@ Template.incidentNew.events
 			descr: $('#areaDescription').val()
 
 		Meteor.call "incident", incident, (error, id) ->
-
 			if error
 				throwError error.reason
 			else
+				point = new google.maps.LatLng(Session.get('tmp-lat'), Session.get('tmp-lng'))
 				$('#myModal').modal('hide')
 				marker = new google.maps.Marker(
 					position: point
 				)
+				console.log()
 				marker.setMap(map)
 
 
