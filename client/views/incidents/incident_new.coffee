@@ -8,7 +8,7 @@ Template.incidentNew.events
 		incident = 
 			title: $('#inputTitle').val()
 			lat: Session.get('tmp-lat')
-			long: Session.get('tmp-lng')
+			lng: Session.get('tmp-lng')
 			descr: $('#areaDescription').val()
 
 		Meteor.call "incident", incident, (error, id) ->
@@ -20,12 +20,12 @@ Template.incidentNew.events
 				marker = new google.maps.Marker(
 					position: point
 				)
-				console.log()
 				marker.setMap(map)
+				addDblClickEventListener(marker)
 
 
 Template.incidentNew.rendered = ->
 	$('#inputLat').val( Session.get 'tmp-lat'  )
-	$('#inputLong').val( Session.get 'tmp-lng' )
+	$('#inputLng').val( Session.get 'tmp-lng' )
 
 

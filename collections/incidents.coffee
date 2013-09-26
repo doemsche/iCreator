@@ -8,9 +8,9 @@ Meteor.methods incident: (incidentAttributes) ->
 	throw new Meteor.Error(422, "Please fill in a title")  unless incidentAttributes.title
 	throw new Meteor.Error(422, "Please fill in a description")  unless incidentAttributes.descr
 	throw new Meteor.Error(422, "Your incident lacks of location information (Lattitude missing)")  unless incidentAttributes.lat
-	throw new Meteor.Error(422, "Your incident lacks of location information (Longitude missing)")  unless incidentAttributes.long
+	throw new Meteor.Error(422, "Your incident lacks of location information (Longitude missing)")  unless incidentAttributes.lng
 
-	incident = _.extend(_.pick(incidentAttributes, "title", "lat", "long", "descr"),
+	incident = _.extend(_.pick(incidentAttributes, "title", "lat", "lng", "descr"),
     	userId: user._id
     	author: user.username
     	submitted: new Date().getTime()

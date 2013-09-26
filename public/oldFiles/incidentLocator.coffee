@@ -93,6 +93,7 @@ if Meteor.isClient
 			console.log 'dbl click'
 			mapIncident = incidents.findOne( {lat:event.latLng.pb, long:event.latLng.qb} )
 			Session.set "selected_incident", mapIncident
+			marker.setMap(map)
 
 
 

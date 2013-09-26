@@ -7,11 +7,13 @@ Template.map.rendered = ->
 	window.map = new google.maps.Map( document.getElementById('map-canvas'), mapOptions )
 
 	Incidents.find().forEach (incident) ->		
-		point = new google.maps.LatLng(incident.lat, incident.long)
+		point = new google.maps.LatLng(incident.lat, incident.lng)
 		marker = new google.maps.Marker(
 			position: point
 		)
 		marker.setMap(map)
+		#
+		addDblClickEventListener(marker)
 		
 
 	google.maps.event.addListener map, "dblclick", (event) ->
@@ -22,7 +24,18 @@ Template.map.rendered = ->
 		)
 		document.body.appendChild(fragment);
 		$('#myModal').modal()
-		
 
-	centerMarker = (map,point) ->
-		 map.setCenter(point)
+
+@addDblClickEventListener = (marker) ->
+	google.maps.event.addListener marker, "dblclick", (event) ->
+		lat = event.latLng.lat()
+		lng = event.latLng.lng()
+
+		mapIncident = Incidents.findOne( lat:lat, lng:lng )
+
+		console.log 'dbl click'
+		#mapIncident = incidents.findOne( {lat:event.latLng.pb, long:event.latLng.qb} )
+		Session.set 'detail-view', mapIncident._id
+		point = new google.maps.LatLng(lat, lng)
+		window.map.panTo(point)
+
