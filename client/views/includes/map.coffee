@@ -35,7 +35,7 @@ Template.map.rendered = ->
 
 		console.log 'dbl click'
 		#mapIncident = incidents.findOne( {lat:event.latLng.pb, long:event.latLng.qb} )
-		Session.set 'detail-view', mapIncident._id
+		Session.set 'growl-view', mapIncident._id
 		point = new google.maps.LatLng(lat, lng)
 		window.map.panTo(point)
 

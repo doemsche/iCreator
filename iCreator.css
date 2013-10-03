@@ -20,19 +20,7 @@
 }
 
 
-#incident-details .open{
 
-}
-
-#incident-details{
-	right: 0;
-	z-index: 1000;
-	position: fixed;
-	background-color: #e2e1e4;
-	top: 250px;
-	box-shadow: -3px 4px 2px #777;
-	width: 400px;
-}
 
 
 #checkCurrentPosition.btn{
