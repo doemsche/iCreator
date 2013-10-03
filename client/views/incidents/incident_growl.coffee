@@ -3,7 +3,7 @@ Template.incidentGrowl.growl = ->
 	if incident
 		title = incident.title
 		id = incident._id
-		href = "<a href='#{id}'>#{title}</a>"
+		href = "<a href='incident/#{id}'>#{title}</a>"
 		$.bootstrapGrowl( href )
 
 	

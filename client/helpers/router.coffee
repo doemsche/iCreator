@@ -1,7 +1,7 @@
 Meteor.Router.add
 	'/': 'incidentsList'
 	'/incident/:_id':
-		to: 'incidentPage'
+		to: 'incidentDetailPage'
 		and: (id)->
 			Session.set 'currentIncidentId', id
 
