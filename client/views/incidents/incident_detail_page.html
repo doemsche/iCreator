@@ -1,6 +1,32 @@
 <template name="incidentDetailPage">
-	{{#with incident}}
-		{{title}}
-		{{author}}
-	{{/with}}
+	<div class="row">
+		 <div class="span6">
+		 	<ul class="detail-list">
+			{{#with incident}}
+				<li><i class="icon-user"></i><span class="detail-item">Titel: {{title}}</span></li>
+				<li><i class="icon-qrcode"></i><span class="detail-item">  Author: {{author}}</span></li>
+				<li><i class="icon-random"></i><span class="detail-item"> Latitude: {{lat}}</span></li>
+				<li><i class="icon-signal"></i> <span class="detail-item">Longitude: {{lng}}</span></li>
+				<li><i class="icon-hdd"></i><span class="detail-item"> Description: {{descr}}</span></li>
+			{{/with}}
+			</ul>
+			{{#if currentUser}}
+				{{>commentSubmit}}
+			{{else}}
+				Please log in to make comments to incidents
+			{{/if}}
+			<ul class="comments">
+		      {{#each comments}}
+		       {{>comment}}
+		      {{/each}}
+		    </ul>
+		 </div>
+
+ 		 <div class="span6">
+ 		 	<div id="map-container">
+				{{> map_detail }}
+			</div>
+ 		 </div>
+	</div>
+
 </template>

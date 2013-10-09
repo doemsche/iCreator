@@ -39,3 +39,19 @@ Template.map.rendered = ->
 		point = new google.maps.LatLng(lat, lng)
 		window.map.panTo(point)
 
+
+# Template.map_detail.helpers
+# 	incident: -> 
+# 		Incidents.findOne( Session.get 'currentIncidentId' )
+
+Template.map_detail.rendered = ->
+	incident = Incidents.findOne( Session.get 'currentIncidentId' )
+	point = new google.maps.LatLng(incident.lat, incident.lng)
+	mapOptions =
+		zoom: 10
+		center: point
+	window.map = new google.maps.Map( document.getElementById('map-canvas'), mapOptions )
+	marker = new google.maps.Marker(
+			position: point
+		)
+	marker.setMap(map)
