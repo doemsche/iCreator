@@ -18,6 +18,7 @@ Meteor.Router.filters
 		clearErrors()
 		page
 
+
 Meteor.Router.filter 'requireLogin',
   only: 'incidentNew'
 

@@ -4,7 +4,6 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-autopublish
 insecure
 preserve-inputs
 router
@@ -12,4 +11,3 @@ accounts-ui-bootstrap-dropdown
 coffeescript
 accounts-password
 bootstrap
-
