@@ -1,5 +1,8 @@
 @Incidents = new Meteor.Collection 'incidents'
 
+Incidents.allow
+  update: ownsDocument
+
 
 Meteor.methods incident: (incidentAttributes) ->
 	user = Meteor.user()

@@ -33,5 +33,6 @@ Template.incidentsList.events
 			console.log "geo not supported"
 
 Template.incidentsList.rendered = -> 
-	$(".toggle").on "click", ->
+	$(".toggle").on "click", (e) ->
+		e.preventDefault()
 		$('body').toggleClass('toc-open sidebar-open')

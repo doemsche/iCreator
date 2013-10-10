@@ -1,0 +1,57 @@
+<template name="incidentEdit">
+	<div class="row">
+		 <div class="span6">
+		 	<ul class="detail-list">
+			{{#with incident}}
+				<li>
+					<div class="control-group">
+						<div class="controls">
+							<i class="icon-user"></i>
+							<input name="title" type="text" value="{{title}}" placeholder="Name your post"/>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="control-group">
+						<div class="controls">
+							<i class="icon-user"></i>
+							<input name="title" type="text" value="{{author}}" placeholder="Name your post"/>
+						</div>
+					</div>
+				</li>
+				<li><i class="icon-random"></i><span class="detail-item"> Latitude: {{lat}}</span></li>
+				<li><i class="icon-signal"></i> <span class="detail-item">Longitude: {{lng}}</span></li>
+				<li>
+					<div class="control-group">
+						<div class="controls">
+							<i class="icon-user"></i>
+							<input name="title" type="text" value="{{descr}}" placeholder="Name your post"/>
+						</div>
+					</div>
+				</li>
+
+			{{/with}}
+			</ul>
+			<div class="control-group">
+				<div class="controls">
+					<input id="incident-update" type="submit" value="Submit" class="btn btn-primary submit"/>
+					<input id="incident-cancel" type="submit" value="Cancel" class="btn btn-default submit"/>
+					<input id="incident-delete" type="submit" value="Delete" class="btn btn-danger submit"/>
+				</div>
+			</div>
+
+			<ul class="comments">
+		      {{#each comments}}
+		       {{>comment}}
+		      {{/each}}
+		    </ul>
+		 </div>
+
+ 		 <div class="span6">
+ 		 	<div id="map-container">
+				{{> map_detail }}
+			</div>
+ 		 </div>
+	</div>
+
+</template>

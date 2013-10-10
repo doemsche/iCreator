@@ -5,6 +5,11 @@ Meteor.Router.add
 		and: (id)->
 			Session.set 'currentIncidentId', id
 
+	'/incident/:_id/edit':
+		to: 'incidentEdit'
+		and: (id) ->
+			Session.set 'currentIncidentId', id
+
 Meteor.Router.filters
 	requireLogin: ->
 		if Meteor.user()

@@ -1,8 +1,7 @@
 Template.incidentItem.helpers
 	email: ->
 		@name + "@gmx.ch"
-
-
+	
 
 Template.incidentItem.events
 	"click .incident-item": (e,t) ->

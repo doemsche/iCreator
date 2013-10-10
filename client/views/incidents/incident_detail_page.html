@@ -7,9 +7,14 @@
 				<li><i class="icon-qrcode"></i><span class="detail-item">  Author: {{author}}</span></li>
 				<li><i class="icon-random"></i><span class="detail-item"> Latitude: {{lat}}</span></li>
 				<li><i class="icon-signal"></i> <span class="detail-item">Longitude: {{lng}}</span></li>
-				<li><i class="icon-hdd"></i><span class="detail-item"> Description: {{descr}}</span></li>
+				<li><i class="icon-hdd"></i><span class="detail-item"> Description: {{descr}}</span></li>			
 			{{/with}}
+
 			</ul>
+			{{#if isEditable}}
+				<i class="icon-edit icon-3"></i><a href="{{incidentEditPath incident}}" class="edit-incident">edit</a>
+			{{/if}}
+
 			{{#if currentUser}}
 				{{>commentSubmit}}
 			{{else}}
