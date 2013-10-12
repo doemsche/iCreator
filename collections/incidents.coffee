@@ -2,6 +2,7 @@
 
 Incidents.allow
   update: ownsDocument
+  remove: ownsDocument
 
 
 Meteor.methods incident: (incidentAttributes) ->
