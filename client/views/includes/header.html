@@ -9,6 +9,13 @@
       <a class="brand" href="{{incidentsListPath}}">
         <i class="icon-map-marker icon-3"></i> iLocator
       </a>
+      {{#if userProfileComplete }}
+          Profile incomplete <a class="badge badge-important" href="{{userProfilePath user}}">1</a>
+      {{else}}
+        {{#with user}}
+          Profile<a class="badge badge-important" href="{{userProfilePath user}}">0</a>
+        {{/with}}
+      {{/if}}
       <div class="nav-collapse collapse">
         <ul class="nav pull-right">
           <li>{{loginButtons}}</li>

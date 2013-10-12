@@ -1,0 +1,9 @@
+<template name="userProfile">
+	{{#with user}}
+	<ul>
+		<li>Username: {{username}}</li>
+		<li>Location: {{area}}</li>
+	</ul>
+	{{/with}}
+	<i class="icon-edit icon-3"></i><a href="{{userProfileEditPath user}}" class="edit-user">edit</a>
+</template>

@@ -1,0 +1,17 @@
+<template name="userProfileEdit">
+	{{#with user}}
+	<ul>
+		<li>Username: {{username}}</li>
+		
+		<li>
+		<div class="control-group">
+			<div class="controls">
+				<i class="icon-user"></i>
+				<input name="title" type="text"  id="profile-area" value="{{area}}" placeholder="where do you live"/>
+			</div>
+		</div>
+		</li>
+	</ul>
+	{{/with}}
+	<input id="userprofile-update" type="submit" value="Update" class="btn btn-primary submit"/>
+</template>

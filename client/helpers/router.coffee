@@ -10,6 +10,16 @@ Meteor.Router.add
 		and: (id) ->
 			Session.set 'currentIncidentId', id
 
+	'/userprofile/:_id':
+		to: 'userProfile'
+		and: (id) ->
+			Meteor.userId()
+
+	'/userprofile/:_id/edit':
+		to: 'userProfileEdit'
+		and: (id) ->
+			Meteor.userId()
+
 Meteor.Router.filters
 	requireLogin: ->
 		if Meteor.user()

@@ -24,5 +24,16 @@ Meteor.methods
 	removeIncidentComments: (incidentId)->
 		console.log(Comments.find({incidentId: incidentId}).count())
 		Comments.remove({incidentId: incidentId})
+	,
+	updateUserProfile: (userId, area)->
+		console.log(Meteor.users.findOne({_id:userId}))
+		Meteor.users.update
+			_id: userId
+			,
+			$set:
+				area: area
 
+
+
+		
 
