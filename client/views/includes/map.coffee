@@ -14,6 +14,7 @@ Template.map.rendered = ->
 		address: user.area
 	, 	(results, status) ->
 		if status is google.maps.GeocoderStatus.OK
+			console.log results
 			console.log 'set map to address' + user.area
 			window.map.setCenter results[0].geometry.location
 		else

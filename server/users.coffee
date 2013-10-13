@@ -1,5 +1,5 @@
 Accounts.onCreateUser (options, user) ->
-  user.area = 'basel'
+  user.area = ''
   user
 
 

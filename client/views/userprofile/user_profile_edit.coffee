@@ -8,5 +8,6 @@ Template.userProfileEdit.events
 		e.preventDefault()
 		area = $('#profile-area').val()
 		console.log(area)
-		
-		Meteor.call 'updateUserProfile', Meteor.userId(), area
+
+		Meteor.call 'updateUserProfile', area
+		Meteor.Router.to "incidentsList"
