@@ -6,8 +6,10 @@ Template.userProfileEdit.helpers
 Template.userProfileEdit.events
 	'click #userprofile-update': (e) ->
 		e.preventDefault()
-		area = $('#profile-area').val()
-		console.log(area)
+		userProfile=
+			location: $('#profile-location').val()
+			address: $('#profile-address').val()
 
-		Meteor.call 'updateUserProfile', area
+
+		Meteor.call 'updateUserProfile', userProfile
 		Meteor.Router.to "incidentsList"

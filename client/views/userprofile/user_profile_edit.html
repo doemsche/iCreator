@@ -1,15 +1,28 @@
 <template name="userProfileEdit">
+
 	{{#with user}}
 	<ul>
 		<li>Username: {{username}}</li>
-		
+	</ul>
+	{{/with}}
+
+	{{#with user.profile}}
+	<ul>
 		<li>
-		<div class="control-group">
-			<div class="controls">
-				<i class="icon-user"></i>
-				<input name="title" type="text"  id="profile-area" value="{{area}}" placeholder="where do you live"/>
+			<div class="control-group">
+				<div class="controls">
+					<i class="icon-user"></i>
+					<input name="title" type="text"  id="profile-location" value="{{location}}" placeholder="where do you live"/>
+				</div>
 			</div>
-		</div>
+		</li>
+		<li>
+			<div class="control-group">
+				<div class="controls">
+					<i class="icon-user"></i>
+					<input name="title" type="text"  id="profile-address" value="{{address}}" placeholder="what is your address"/>
+				</div>
+			</div>
 		</li>
 	</ul>
 	{{/with}}

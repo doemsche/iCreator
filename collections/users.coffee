@@ -1,6 +1,6 @@
 Meteor.methods
-	updateUserProfile: (area) ->	
+	updateUserProfile: (userProfile) ->	
 		user = Meteor.user()
-		userId = Meteor.userId()
+		console.log user
 		#console.log(Meteor.users.findOne({_id:userId}))
-		Meteor.users.update({_id:userId}, {$set: {area: area}})
+		Meteor.users.update({_id:user._id}, {$set:{profile: userProfile}})

@@ -1,5 +1,7 @@
 Accounts.onCreateUser (options, user) ->
-  user.area = ''
+  user.profile=
+  	location: ''
+  	address: ''
   user
 
 

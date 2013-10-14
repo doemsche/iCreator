@@ -1,8 +1,10 @@
 Template.map.rendered = ->
 	point = new google.maps.LatLng 0, 0
-	user = Meteor.user()
-	if user is null 
-		user = {area: 'Zurich'}
+	userProfile = Meteor.user().profile
+	if userProfile is null or undefined
+		userProfile=
+			location: 'Zurich'
+			address: ''
 
 	mapOptions =
 		zoom: 14
@@ -11,11 +13,11 @@ Template.map.rendered = ->
 	window.map = new google.maps.Map( document.getElementById('map-canvas'), mapOptions )
 	geocoder = new google.maps.Geocoder()
 	geocoder.geocode
-		address: user.area
+		address: userProfile.location
 	, 	(results, status) ->
 		if status is google.maps.GeocoderStatus.OK
 			console.log results
-			console.log 'set map to address' + user.area
+			console.log 'set map to address' + userProfile.location
 			window.map.setCenter results[0].geometry.location
 		else
 			console.log 'no result'
