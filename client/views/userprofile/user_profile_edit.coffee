@@ -9,6 +9,7 @@ Template.userProfileEdit.events
 		userProfile=
 			location: $('#profile-location').val()
 			address: $('#profile-address').val()
+			email: $('#profile-email').val()
 
 
 		Meteor.call 'updateUserProfile', userProfile
