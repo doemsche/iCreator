@@ -30,10 +30,23 @@ Template.incidentsList.events
 				else
 					alert "less than 2 Bike thefts rported within #{radius} meters. It is relatively save for bikes here."
 		else
-			console.log "geo not supported"
+			alert "geo not supported"
 
 	'click .toggle': (e) ->
 		e.preventDefault()
 		$('body').toggleClass('toc-open sidebar-open')
+
+	'click #start-now': (e) ->
+		e.preventDefault()
+		$('#login-dropdown-list').addClass('open');
+
+	'click .map-tab': (e) ->
+		geocoder = new google.maps.Geocoder()
+		geocoder.geocode
+			address: e.target.id
+			,
+			(results, status) ->
+				window.map.setCenter results[0].geometry.location
+
 
 		

@@ -1,10 +1,11 @@
 Template.map.rendered = ->
 	point = new google.maps.LatLng 0, 0
-	userProfile = Meteor.user().profile
-	if userProfile is null or undefined
+	unless Meteor.user() is undefined or null
 		userProfile=
-			location: 'Zurich'
+			location: 'Basel'
 			address: ''
+	else
+		userProfile = Meteor.user().profile
 
 	mapOptions =
 		zoom: 14
@@ -20,12 +21,8 @@ Template.map.rendered = ->
 				zoom = 8
 			else if results[0].types[0] is 'locality'
 				zoom = 15
-			console.log 'set map to address' + userProfile.location
 			window.map.setCenter results[0].geometry.location
-			console.log zoom
 			window.map.setZoom zoom
-		else
-			console.log 'no result'
 
 	Incidents.find().forEach (incident) ->		
 		point = new google.maps.LatLng(incident.lat, incident.lng)
@@ -54,7 +51,6 @@ Template.map.rendered = ->
 
 		mapIncident = Incidents.findOne( lat:lat, lng:lng )
 
-		console.log 'dbl click'
 		#mapIncident = incidents.findOne( {lat:event.latLng.pb, long:event.latLng.qb} )
 		Session.set 'growl-view', mapIncident._id
 		point = new google.maps.LatLng(lat, lng)
@@ -66,13 +62,13 @@ Template.map.rendered = ->
 # 		Incidents.findOne( Session.get 'currentIncidentId' )
 
 Template.map_detail.rendered = ->
-	incident = Incidents.findOne( Session.get 'currentIncidentId' )
-	point = new google.maps.LatLng(incident.lat, incident.lng)
-	mapOptions =
-		zoom: 10
-		center: point
-	window.map = new google.maps.Map( document.getElementById('map-canvas'), mapOptions )
-	marker = new google.maps.Marker(
-			position: point
-		)
-	marker.setMap(map)
+	# incident = Incidents.findOne( Session.get 'currentIncidentId' )
+	# point = new google.maps.LatLng(incident.lat, incident.lng)
+	# mapOptions =
+	# 	zoom: 10
+	# 	center: point
+	# window.map = new google.maps.Map( document.getElementById('map-canvas'), mapOptions )
+	# marker = new google.maps.Marker(
+	# 		position: point
+	# 	)
+	# marker.setMap(map)

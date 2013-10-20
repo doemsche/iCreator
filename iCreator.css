@@ -1,6 +1,7 @@
 .hero-unit{
 	padding:30px;
 }
+
 #map-canvas { height: 500px; width:100%; margin-right:200px; }
 
 #incidents-container{
@@ -19,14 +20,9 @@
 	list-style: none
 }
 
-
-
-
-
 #checkCurrentPosition.btn{
 	margin-bottom:20px;
 }
-
 
 
 
@@ -91,3 +87,19 @@
 	padding-left:10px;
 }
 
+/**/
+
+.gravatar-small{
+	padding: 5px 0;
+	width: 25px;
+	height:25px;
+}
+
+.hero-unit{
+	text-align:center;
+	margin:70px 0;
+}
+
+.hero-unit h1{
+	margin-bottom:15px;
+}

@@ -1,5 +1,9 @@
 Meteor.Router.add
+	#static pagges
 	'/': 'incidentsList'
+	'/about/':
+		to: 'aboutPage'
+
 	'/incident/:_id':
 		to: 'incidentDetailPage'
 		and: (id)->

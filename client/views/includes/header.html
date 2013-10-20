@@ -1,27 +1,28 @@
+
 <template name="header">
-  <header class="navbar">
+  <h3 class="muted">Social Map für Velo-Bestohlene</h3>
+  <div class="navbar">
     <div class="navbar-inner">
-      <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </a>
-      <a class="brand" href="{{incidentsListPath}}">
-        <i class="icon-map-marker icon-3"></i> iLocator
-      </a>
-      {{#if userProfileComplete }}
-          Profile incomplete <a class="badge badge-important" href="{{userProfilePath user}}">1</a>
-      {{else}}
-        {{#with user}}
-          Profile<a class="badge badge-important" href="{{userProfilePath user}}">0</a>
-        {{/with}}
-      {{/if}}
-      <div class="nav-collapse collapse">
-        <ul class="nav pull-right">
-          <li><img src="{{gravatar}}" width="50px" height="50px"/></li>
-          <li>{{loginButtons}}</li>
-        </ul>
-      </div>
+      <a class="brand" href="#">Velo fort</a>
+      <ul class="nav">
+        <li><a href="/">Home</a></li>
+        {{#if currentUser }}
+          <li>
+              <a href="{{userProfilePath user}}">Profile
+              {{#if userProfileComplete }}
+                <div class="badge badge-important">1</div>
+              {{/if}}
+              </a>
+          </li>
+        {{/if}}
+        <li>
+          <a href="{{aboutPagePath}}">About</a>
+        </li>
+      </ul>
+      <ul class="nav pull-right">
+        <li><img class="gravatar-small" src="{{gravatar}}"/></li>
+        <li>{{loginButtons}}</li>
+      </ul>
     </div>
-  </header>
+  </div>
 </template>

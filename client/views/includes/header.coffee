@@ -4,7 +4,7 @@ Template.header.helpers
 
 	gravatar:->
 		unless Meteor.user()
-			'example@example.com'
+			'/images/gravatar.jpg'
 		else
 			Gravatar.imageUrl(Meteor.user().profile.email)
 

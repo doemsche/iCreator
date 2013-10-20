@@ -1,6 +1,39 @@
 <template name="incidentsList">
-	{{# if currentUser }}	
-		<div class="toc sidebar">
+	{{#unless currentUser}}
+		<div class="hero-unit">
+			<h1>Velo geklaut? Hier melden!</h1>
+			<p class="lead">Wieso eine Site wie diese? Nach dem ersten Frust über den Verlust gilt es nun zu handeln und deine Erfahrungen zu teilen. Nimm Dir 5 Minuten Zeit und mache einen Report über den Vorfall. Wer weiss mit etwas Glück taucht dein Vehikel ja wieder auf...</p>
+			<a id="start-now" class="btn btn-large btn-success" href="#">Vorfall jetzt melden</a>
+		</div>
+		<div class="row-fluid">
+			<div class="span4">
+			<h2>Heading</h2>
+				<p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
+				<p><a class="btn" href="#">View details »</a></p>
+			</div>
+			<div class="span8">
+				<div class="tabbable"> <!-- Only required for left/right tabs -->
+				  <ul class="nav nav-tabs">
+				    <li class="active"><a class="map-tab" id="basel" href="#tab1" data-toggle="tab">Basel</a></li>
+				    <li><a class="map-tab" id="zurich" href="#tab2" data-toggle="tab">Zürich</a></li>
+				    <li><a class="map-tab" id="bern" href="#tab2" data-toggle="tab">Bern</a></li>
+				  </ul>
+				</div>
+				<div id="map-container">
+					{{> map }}
+				</div>
+			</div>
+		</div>
+	{{else}}
+		<div class="span10">
+			
+
+
+			<div id="map-container">
+				{{> map }}
+			</div>
+		</div>
+	<!-- 	<div class="toc sidebar">
 			<a href="#" class="toggle">Toggle Table of Contents</a>
 			<div class="inner">
 				<ul class="incidents">
@@ -9,14 +42,8 @@
 					{{/each}}
 				</ul>
 			</div>
-		</div>
-	{{/if}}
-	<button id="checkCurrentPosition" class="btn btn-success">Check Position</button>
-	<div id="map-container">
-		{{> map }}
-	</div>
-	{{#if currentUser }}
-  		{{>incidentGrowl}}
-  	{{/if}}
-  
+		</div> -->
+
+	{{/unless}}
+
 </template>
