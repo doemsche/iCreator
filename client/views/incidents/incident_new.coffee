@@ -2,8 +2,9 @@ Template.incidentNew.events
 	'click .close-win': ->
 		$('#myModal').modal('hide')
 
-	'click .save-win': ->
-		clearErrors()
+	'click .save-win': =>
+
+		Errors.clearSeen()
 
 		incident = 
 			title: $('#inputTitle').val()
@@ -13,7 +14,7 @@ Template.incidentNew.events
 
 		Meteor.call "incident", incident, (error, id) ->
 			if error
-				throwError error.reason
+				Errors.throw error.reason
 			else
 				point = new google.maps.LatLng(Session.get('tmp-lat'), Session.get('tmp-lng'))
 				$('#myModal').modal('hide')

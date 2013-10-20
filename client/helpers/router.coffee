@@ -29,12 +29,12 @@ Meteor.Router.filters
 		else
 			return 'accessDenied'
 	,
-	clearErrors: (page) ->
-		clearErrors()
+	clearErrors2: (page) =>
+		Errors.clearSeen()
 		page
 
 
 Meteor.Router.filter 'requireLogin',
   only: 'incidentNew'
 
-Meteor.Router.filter 'clearErrors'
+#Meteor.Router.filter 'clearErrors'
