@@ -16,9 +16,14 @@ Template.map.rendered = ->
 		address: userProfile.location
 	, 	(results, status) ->
 		if status is google.maps.GeocoderStatus.OK
-			console.log results
+			if results[0].types[0] is 'country'
+				zoom = 8
+			else if results[0].types[0] is 'locality'
+				zoom = 15
 			console.log 'set map to address' + userProfile.location
 			window.map.setCenter results[0].geometry.location
+			console.log zoom
+			window.map.setZoom zoom
 		else
 			console.log 'no result'
 
