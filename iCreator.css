@@ -123,3 +123,22 @@ margin-top: 70px;
 border-top: 1px solid #e5e5e5;
 background-color: #f5f5f5;
 }
+
+.title-container{
+	margin:25px 25px 60px 25px;
+}
+
+
+/*help*/
+.help-container{
+	padding:8px;
+}
+
+
+.blue-txt{
+	color:#0088cc;
+}
+
+.icon-map{
+	background: url(/images/map_small.png);
+}

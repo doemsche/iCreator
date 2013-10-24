@@ -2,6 +2,8 @@ Template.incidentsList.helpers
 	incidents: ->
 		Incidents.find {}
 
+Template.incidentsList.rendered = ->
+	$('#create-incident').popover()
 
 Template.incidentsList.events
 	'click #checkCurrentPosition.btn': ->

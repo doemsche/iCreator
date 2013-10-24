@@ -31,7 +31,7 @@ Template.map.rendered = ->
 		)
 		marker.setMap(map)
 		#
-		addDblClickEventListener(marker)
+		addClickEventListener(marker)
 		
 
 	google.maps.event.addListener map, "dblclick", (event) ->
@@ -44,8 +44,8 @@ Template.map.rendered = ->
 		$('#myModal').modal()
 
 
-@addDblClickEventListener = (marker) ->
-	google.maps.event.addListener marker, "dblclick", (event) ->
+@addClickEventListener = (marker) ->
+	google.maps.event.addListener marker, "click", (event) ->
 		lat = event.latLng.lat()
 		lng = event.latLng.lng()
 

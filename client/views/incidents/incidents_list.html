@@ -25,24 +25,39 @@
 			</div>
 		</div>
 	{{else}}
-		<div class="span10">
-			
+	<div class="row">
+		<div class="span6">
+			<div class="title-container">
+				<div class="media">
+			      <a class="pull-left" href="#">
+			        <img class="media-object" src="/images/map_medium.png" >
+			      </a>
+			      <div class="caption">
+                <h3>Thumbnail label</h3>
+                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+                <p><a id="create-incident" href="#" data-toggle="popover" class="btn btn-success" title="" data-content="Um einen Incident zu kreieren, bitte auf der Karte am Ort wo dein Velo gestohlen wurde Doppelklicken" data-placement="bottom" data-original-title="Create an Incident">Create Incident</a>
+                </p>
 
 
-			<div id="map-container">
-				{{> map }}
+              </div>
+			    </div>
 			</div>
 		</div>
-	<!-- 	<div class="toc sidebar">
-			<a href="#" class="toggle">Toggle Table of Contents</a>
-			<div class="inner">
-				<ul class="incidents">
-					{{#each incidents}}
-						{{> incidentItem }}
-					{{/each}}
-				</ul>
-			</div>
-		</div> -->
+		<div class="span4">
+			<div class="title-container">
+				<div class="caption">
+	                <h3>Incident Detail</h3>
+	                <p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
+	                <p><a href="{{incidentDetailPagePath}}" class="btn btn-primary">View Details</a></p>
+	              </div>
+	        </div>
+        </div>
+	</div>
+
+			
+	<div id="map-container">
+		{{> map }}
+	</div>
 
 	{{/unless}}
 

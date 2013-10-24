@@ -9,20 +9,31 @@
           <li><a href="/">Home</a></li>
           {{#if currentUser }}
             <li>
-                <a href="{{userProfilePath user}}">Profile
-                {{#if userProfileComplete }}
-                  <div class="badge badge-important">1</div>
-                {{/if}}
+                <a href="{{userProfilePath user}}">
+                  Profile
                 </a>
             </li>
           {{/if}}
           <li>
             <a href="{{aboutPagePath}}">About</a>
           </li>
+
         </ul>
         <ul class="nav pull-right">
           <li><img class="gravatar-small" src="{{gravatar}}"/></li>
           <li>{{loginButtons}}</li>
+           {{#if currentUser}}
+            <li>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">?</a>
+              <ul class="dropdown-menu">
+                <div class="help-container">
+                <span class="blue-txt">Help issue:</span>
+                <p>Click on the <i class="icon-map-marker icon-3"></i> Marker of an incident in the map below to see details about the incident.</p>
+                <p>DoubleClick on the location of your incident on the <i class="icon-map icon-3"></i> map to create an incident</p>  
+              </div>
+              </ul>
+            </li>
+          {{/if}}
         </ul>
     </div>
   </div>
