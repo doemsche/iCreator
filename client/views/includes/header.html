@@ -3,26 +3,27 @@
   <h3 class="muted">Social Map für Velo-Bestohlene</h3>
   <div class="navbar">
     <div class="navbar-inner">
-      <a class="brand" href="#">Velo fort</a>
-      <ul class="nav">
-        <li><a href="/">Home</a></li>
-        {{#if currentUser }}
+      <div class="container">
+
+        <ul class="nav">
+          <li><a href="/">Home</a></li>
+          {{#if currentUser }}
+            <li>
+                <a href="{{userProfilePath user}}">Profile
+                {{#if userProfileComplete }}
+                  <div class="badge badge-important">1</div>
+                {{/if}}
+                </a>
+            </li>
+          {{/if}}
           <li>
-              <a href="{{userProfilePath user}}">Profile
-              {{#if userProfileComplete }}
-                <div class="badge badge-important">1</div>
-              {{/if}}
-              </a>
+            <a href="{{aboutPagePath}}">About</a>
           </li>
-        {{/if}}
-        <li>
-          <a href="{{aboutPagePath}}">About</a>
-        </li>
-      </ul>
-      <ul class="nav pull-right">
-        <li><img class="gravatar-small" src="{{gravatar}}"/></li>
-        <li>{{loginButtons}}</li>
-      </ul>
+        </ul>
+        <ul class="nav pull-right">
+          <li><img class="gravatar-small" src="{{gravatar}}"/></li>
+          <li>{{loginButtons}}</li>
+        </ul>
     </div>
   </div>
 </template>
