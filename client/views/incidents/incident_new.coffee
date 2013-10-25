@@ -22,7 +22,7 @@ Template.incidentNew.events
 					position: point
 				)
 				marker.setMap(map)
-				addDblClickEventListener(marker)
+				addClickEventListener(marker)
 
 
 Template.incidentNew.rendered = ->

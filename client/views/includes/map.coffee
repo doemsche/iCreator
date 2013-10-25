@@ -50,9 +50,7 @@ Template.map.rendered = ->
 		lng = event.latLng.lng()
 
 		mapIncident = Incidents.findOne( lat:lat, lng:lng )
-
-		#mapIncident = incidents.findOne( {lat:event.latLng.pb, long:event.latLng.qb} )
-		Session.set 'growl-view', mapIncident._id
+		Session.set 'currentIncidentId', mapIncident._id
 		point = new google.maps.LatLng(lat, lng)
 		window.map.panTo(point)
 

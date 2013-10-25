@@ -1,0 +1,32 @@
+<template name="incidentDetailPreview">
+	<div id="previewDetail-container" style="padding:3px">
+		<div class="bg-light">
+			{{#with incident}}
+			<h3 class="preview-title">Incident Detail</h3>
+
+			<ul>
+				<li>
+					{{title}}
+				</li>
+				<li>
+					{{title}}
+				</li>
+				<li>
+					{{title}}
+				</li>
+				<li>
+					{{title}}
+				</li>
+				<li>
+					{{title}}
+				</li>
+				<li>
+					{{title}}
+				</li>
+			</ul>
+
+			<p><a href="{{incidentDetailPagePath this}}" class="btn btn-primary">View Details</a></p>
+		{{/with}}
+		</div>
+	</div>
+</template>

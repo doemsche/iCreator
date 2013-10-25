@@ -50,5 +50,36 @@ Template.incidentsList.events
 			(results, status) ->
 				window.map.setCenter results[0].geometry.location
 
+	'click #title-modal-close' : (e) ->
+		e.preventDefault()
+		$('#title-modal').hide()
+
+	'click #create-incident': (e) ->
+		$el = $('#map-container')
+		#$('#map-container').css('backgroundColor','red')
+		$el.animate
+			backgroundColor: "rgb(95,195,95)"
+			,300
+			,->
+				$el.animate
+					backgroundColor: "white"
+					,300
+					,->
+						$el.animate
+							backgroundColor: "rgb(95,195,95)"
+							,300
+							,->
+								$el.animate
+									backgroundColor: "white"
+									,300
+									,->
+										$el.animate
+											backgroundColor: "rgb(95,195,95)"
+											,300
+
+
+
+
+
 
 		
