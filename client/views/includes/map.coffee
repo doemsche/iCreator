@@ -10,6 +10,7 @@ Template.map.rendered = ->
 	mapOptions =
 		zoom: 14
 		center: point
+		disableDoubleClickZoom: true
 
 	window.map = new google.maps.Map( document.getElementById('map-canvas'), mapOptions )
 	geocoder = new google.maps.Geocoder()
@@ -42,6 +43,7 @@ Template.map.rendered = ->
 		)
 		document.body.appendChild(fragment);
 		$('#myModal').modal()
+		
 
 
 @addClickEventListener = (marker) ->

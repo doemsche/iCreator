@@ -10,9 +10,6 @@ Template.incidentDetailPreview.rendered = ->
 		,300
 		,->
 			$el.animate
-				backgroundColor: "white"
+				backgroundColor: "rgb(212,212,212)"
 				,300
-				,->
-					$el.animate
-						backgroundColor: "rgb(95,195,95)"
-						,300
+

@@ -3,7 +3,8 @@ Template.incidentsList.helpers
 		Incidents.find {}
 
 Template.incidentsList.rendered = ->
-	$('#create-incident').popover()
+	$('#create-incident').popover({trigger:'hover'})
+
 
 Template.incidentsList.events
 	'click #checkCurrentPosition.btn': ->
@@ -39,8 +40,41 @@ Template.incidentsList.events
 		$('body').toggleClass('toc-open sidebar-open')
 
 	'click #start-now': (e) ->
-		e.preventDefault()
-		$('#login-dropdown-list').addClass('open');
+		$el = $('.nav .pull-right')
+		I_animate($el, {
+			cycle: 3,
+			property:'backgroundColor',
+			time:300,
+			startColor:'rgb(0,0,0,0)',
+			endColor:'rgb(95,195,95)'
+		})
+		#$('#map-container').css('backgroundColor','red')
+		# $el.animate
+		# 	backgroundColor: "rgb(95,195,95)"
+		# 	,300
+		# 	,->
+		# 		$el.animate
+		# 			backgroundColor: "rgb(0,0,0,0)"
+		# 			,300
+		# 			,->
+		# 				$el.animate
+		# 					backgroundColor: "rgb(95,195,95)"
+		# 					,300
+		# 					,->
+		# 						$el.animate
+		# 							backgroundColor: "rgb(0,0,0,0)"
+		# 							,300
+		# 							,->
+		# 								$el.animate
+		# 									backgroundColor: "rgb(95,195,95)"
+		# 									,300
+		# 									,->
+		# 										$el.animate
+		# 											backgroundColor: "rgb(0,0,0,0)"
+		# 											,300
+
+
+
 
 	'click .map-tab': (e) ->
 		geocoder = new google.maps.Geocoder()

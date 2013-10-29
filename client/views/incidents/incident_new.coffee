@@ -26,7 +26,21 @@ Template.incidentNew.events
 
 
 Template.incidentNew.rendered = ->
-	$('#inputLat').val( Session.get 'tmp-lat'  )
+	# $('#animated-switch').bootstrapSwitch()
+	
+	$('#animated-switch').bootstrapSwitch('setAnimated',true)
+	$('#inputLat').val( Session.get 'tmp-lat' )
 	$('#inputLng').val( Session.get 'tmp-lng' )
+
+	# $('.radio1').bootstrapSwitch()
+	# $('.radio1').on 'switch-change', ->
+	# 	$('.radio1').bootstrapSwitch('toggleRadioState')
+
+
+
+
+
+
+	
 
 
