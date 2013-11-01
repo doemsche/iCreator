@@ -6,7 +6,6 @@
 		</div>
 		{{> meteorErrors }}
 		<div class="modal-body">
-			
 			<form class="form-horizontal" id="icidentNewForm">
 				<div class="control-group">
 					<label class="control-label" for="incidentBrand">Brand</label>
@@ -33,8 +32,8 @@
 				<div class="control-group">
 					<label class="control-label" for="">Incident Date</label>
 					<div class="controls">
-						<div class="input-append date" id="incident-datepicker" data-date="dateValue: Customer.DateOfBirth" data-date-format="dd-mm-yyyy">
-						    <input style="width:180px;" class="span2" size="16" type="text" data-bind="value: Customer.DateOfBirth" readonly="readonly" />
+						<div class="input-append date" id="incident-datepicker" data-date="" data-date-format="dd.mm.yyyy">
+						    <input style="width:180px;" class="span2" size="16" type="text" data-bind="" readonly="readonly" />
 						    <span class="add-on"><i class="icon-calendar"></i></span>
 						</div>   
 					</div>   
@@ -99,46 +98,10 @@
 							<option>24:00</option>
 						</select>
 					</div>
-				</div>
-				
-
-			<!-- 	<div class="control-group">
-					<label class="control-label">Bike Locked?</label>
-					<div class="controls">
-						
-					<div id="animated-switch" class="make-switch" data-animated="false">
-					    <input type="checkbox" checked>
-					</div>
-
-					</div>
-				</div> -->
-<!-- 				<div class="control-group">
-					<label class="control-label">Est. Time of Theft:</label>
-				    <div class="controls">
-				        <label for="option1">Morning</label>
-				        <div class="make-switch radio1 radio-no-uncheck">
-				            <input id="option1" type="radio" name="radio1" value="option1">
-				        </div>
-				        <label for="option2">Afternoon</label>
-				        <div class="make-switch radio1 radio-no-uncheck">
-				            <input id="option2" type="radio" name="radio1" value="option2">
-				        </div>
-				        <label for="option3">Evening</label>
-				        <div class="make-switch radio1 radio-no-uncheck">
-				            <input id="option3" type="radio" name="radio1" value="option3">
-				        </div>
-
-				    </div>
-				</div>        -->     
-				
-				
+				</div>			
 				<input type="hidden" disabled="disabled" id="inputLat" value="">
 				<input  disabled="disabled" type="hidden" id="inputLng" value="">
 			</form>
-
-
-
-
 		</div>
 		<div class="modal-footer">
 			<a href="#" class="btn close-win">Close</a>

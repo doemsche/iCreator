@@ -18,12 +18,10 @@ Meteor.methods incident: (incidentAttributes) ->
 
 	incident = _.extend(_.pick(incidentAttributes,
 						"brand",
-						#"color",
-	 					#"serialnumber",
-						#"locked",
-						"time",
-						#"policereport",
-						#"insured",
+						"color",
+						"date",
+						"timeStart",
+						"timeEnd",
 						"lat",
 						"lng",
 						"story"),
@@ -34,3 +32,4 @@ Meteor.methods incident: (incidentAttributes) ->
   	
 	incidentId = Incidents.insert(incident)
 	incidentId
+

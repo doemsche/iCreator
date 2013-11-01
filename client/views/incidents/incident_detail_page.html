@@ -1,37 +1,66 @@
 <template name="incidentDetailPage">
 	<div class="row">
-		 <div class="span6">
-		 	<ul class="detail-list">
-			{{#with incident}}
-				<li><i class="icon-user"></i><span class="detail-item">Titel: {{title}}</span></li>
-				<li><i class="icon-qrcode"></i><span class="detail-item">  Author: {{author}}</span></li>
-				<li><i class="icon-random"></i><span class="detail-item"> Latitude: {{lat}}</span></li>
-				<li><i class="icon-signal"></i> <span class="detail-item">Longitude: {{lng}}</span></li>
-				<li><i class="icon-hdd"></i><span class="detail-item"> Description: {{descr}}</span></li>			
-			{{/with}}
+		<div class="span5">
+			<div id="previewDetail-container" style="padding:3px; background-color:rgb(212,212,212); border-radius:5px;">
+				<div class="bg-light">
+					{{#with incident}}
+						<h3 class="preview-title">Velo Diebstahl</h3>
+						<ul class="preview-list">
+							{{#if brand}}
+								<li class="preview-list-item brand">
+									<i class="icon-tag"></i> Marke: {{brand}}
+								</li>
+							{{/if}}
 
-			</ul>
-			{{#if isEditable}}
-				<i class="icon-edit icon-3"></i><a href="{{incidentEditPath incident}}" class="edit-incident">edit</a>
-			{{/if}}
+							{{#if color}}
+								<li class="preview-list-item color">
+									
+									<div style="float:left;">	
+										<div style="float:left;"><i class="icon-tint"></i> Farbe:</div>
+										<div class="color-box" style="background-color:{{color}}; float:left; margin-left:5px;"></div>
+									</div>
+								</li>
+							{{/if}}
 
+							{{#if story}}
+								<li class="preview-list-item story" style="clear:both; margin: 20px 0 0 0;">
+									<i class="icon-user"></i> {{author}}: <i>{{story}}</i>
+								</li>
+							{{/if}}
+
+							{{#if date}}
+								<li class="preview-list-item date">
+									<i class="icon-calendar"></i> {{date}}
+								</li>
+							{{/if}}
+
+							{{#if timeStart}}
+								{{#if timeEnd}}
+									<li class="preview-list-item timeStart">
+										<i class="icon-time"></i>{{timeStart}} - {{timeEnd}}
+									</li>
+								{{/if}}
+							{{/if}}
+						</ul>
+					{{/with}}
+					<div id="map-container" class="map-detail">
+						{{> map_detail }}
+					</div>
+					<p><a href="{{incidentsListPath}}" class="btn btn-primary">Back to map</a></p>
+				</div>
+			</div>		
+		</div>
+		<div class="span7">
 			{{#if currentUser}}
 				{{>commentSubmit}}
 			{{else}}
 				Please log in to make comments to incidents
 			{{/if}}
-			<ul class="comments">
+			<ul class="comments-list">
 		      {{#each comments}}
-		       {{>comment}}
+				{{>comment}}
 		      {{/each}}
 		    </ul>
-		 </div>
-
- 		 <div class="span6">
- 		 	<div id="map-container">
-				{{> map_detail }}
-			</div>
- 		 </div>
+		</div>
 	</div>
-
 </template>

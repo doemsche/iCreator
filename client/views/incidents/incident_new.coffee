@@ -1,16 +1,20 @@
 Template.incidentNew.events
 	'click .close-win': ->
 		$('#myModal').modal('hide')
-
+		$('#icidentNewForm').find("input[type=text], textarea").val("");
 	'click .save-win': =>
 
 		Errors.clearSeen()
 
 		incident = 
 			brand: $('#incidentBrand').val()
+			color: $('#incidentColor input').val()
+			story: $('#incidentStory').val()
+			date: $('#incident-datepicker input').val()
+			timeStart: $('#incidentTimeStart').val()
+			timeEnd: $('#incidentTimeEnd').val()
 			lat: Session.get('tmp-lat')
 			lng: Session.get('tmp-lng')
-			story: $('#incidentStory').val()
 
 		Meteor.call "incident", incident, (error, id) ->
 			if error
@@ -18,7 +22,7 @@ Template.incidentNew.events
 			else
 				point = new google.maps.LatLng(Session.get('tmp-lat'), Session.get('tmp-lng'))
 				$('#myModal').modal('hide')
-				$('#icidentNewForm').reset()
+				$('#icidentNewForm').find("input[type=text], textarea").val("");
 				marker = new google.maps.Marker(
 					position: point
 				)
