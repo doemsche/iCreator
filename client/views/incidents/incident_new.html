@@ -7,49 +7,102 @@
 		{{> meteorErrors }}
 		<div class="modal-body">
 			
-
-<div class="fuelux">
-				<div id="myWizard" class="wizard">
-					<ul class="steps">
-						<li data-target="#step1" class="active"><span class="badge badge-info">1</span>Step 1<span class="chevron"></span></li>
-						<li data-target="#step2"><span class="badge">2</span>Step 2<span class="chevron"></span></li>
-						<li data-target="#step3"><span class="badge">3</span>Step 3<span class="chevron"></span></li>
-					
-					</ul>
-					<div class="actions">
-						<button type="button" class="btn btn-mini btn-prev"> <i class="icon-arrow-left"></i>Prev</button>
-						<button type="button" class="btn btn-mini btn-next" data-last="Finish">Next<i class="icon-arrow-right"></i></button>
-					</div>
-				</div>
-				<div class="step-content">
-					<div class="step-pane active" id="step1">This is step 1</div>
-					<div class="step-pane" id="step2">This is step 2</div>
-					<div class="step-pane" id="step3">This is step 3</div>
-
-				</div>
-
-				<input type="button" class="btn btn-mini" id="btnWizardPrev" value="prev">
-				<input type="button" class="btn btn-mini" id="btnWizardNext" value="next">
-				<input type="button" class="btn btn-mini" id="btnWizardStep" value="current step">
-			</div>
-
-
-
-
-<!-- 			<form class="form-horizontal">
+			<form class="form-horizontal" id="icidentNewForm">
 				<div class="control-group">
-					<label class="control-label" for="inputTitle">Brand</label>
+					<label class="control-label" for="incidentBrand">Brand</label>
 					<div class="controls">
-					  <input type="text" id="inputTitle" value="">
+					  <input type="text" id="incidentBrand" value="">
 					</div>
 				</div>
-				<div class="control-group">
-					<label class="control-label" for="areaDescription">Your Story</label>
+				<div class="control-group">					
+					<label class="control-label" for="incidentColor">Color</label>
 					<div class="controls">
-					  <textarea id="areaDescription" rows="3"></textarea>
+						<div class="input-append color" data-color="rgb(255, 146, 180)" data-color-format="rgb" id="incidentColor">
+							<input style="width:180px;" type="text" class="span2" value="" readonly="">
+							<span class="add-on"><i style="background-color: rgb(53, 60, 120);"></i></span>
+						</div>
 					</div>
 				</div>
 				<div class="control-group">
+					<label class="control-label" for="incidentStory">Your Story</label>
+					<div class="controls">
+					  <textarea id="incidentStory" rows="3"></textarea>
+					</div>
+				</div>
+
+				<div class="control-group">
+					<label class="control-label" for="">Incident Date</label>
+					<div class="controls">
+						<div class="input-append date" id="incident-datepicker" data-date="dateValue: Customer.DateOfBirth" data-date-format="dd-mm-yyyy">
+						    <input style="width:180px;" class="span2" size="16" type="text" data-bind="value: Customer.DateOfBirth" readonly="readonly" />
+						    <span class="add-on"><i class="icon-calendar"></i></span>
+						</div>   
+					</div>   
+				</div>
+				
+				<div class="control-group">
+					<label class="control-label" for="">Between</label>
+					<div class="controls">
+						<select class="selectpicker timeSelection" id="incidentTimeStart">
+							<option>00:00</option>
+							<option>01:00</option>
+							<option>02:00</option>
+							<option>03:00</option>
+							<option>04:00</option>
+							<option>05:00</option>
+							<option>06:00</option>
+							<option>07:00</option>
+							<option>08:00</option>
+							<option>09:00</option>
+							<option>10:00</option>
+							<option>11:00</option>
+							<option>12:00</option>
+							<option>13:00</option>
+							<option>14:00</option>
+							<option>15:00</option>
+							<option>16:00</option>
+							<option>17:00</option>
+							<option>18:00</option>
+							<option>19:00</option>
+							<option>20:00</option>
+							<option>21:00</option>
+							<option>22:00</option>
+							<option>23:00</option>
+							<option>24:00</option>
+						</select>
+						<span style="margin:0 15px;">and</span>
+						<select class="selectpicker timeSelection" id="incidentTimeEnd">
+							<option>00:00</option>
+							<option>01:00</option>
+							<option>02:00</option>
+							<option>03:00</option>
+							<option>04:00</option>
+							<option>05:00</option>
+							<option>06:00</option>
+							<option>07:00</option>
+							<option>08:00</option>
+							<option>09:00</option>
+							<option>10:00</option>
+							<option>11:00</option>
+							<option>12:00</option>
+							<option>13:00</option>
+							<option>14:00</option>
+							<option>15:00</option>
+							<option>16:00</option>
+							<option>17:00</option>
+							<option>18:00</option>
+							<option>19:00</option>
+							<option>20:00</option>
+							<option>21:00</option>
+							<option>22:00</option>
+							<option>23:00</option>
+							<option>24:00</option>
+						</select>
+					</div>
+				</div>
+				
+
+			<!-- 	<div class="control-group">
 					<label class="control-label">Bike Locked?</label>
 					<div class="controls">
 						
@@ -58,8 +111,8 @@
 					</div>
 
 					</div>
-				</div>
-				<div class="control-group">
+				</div> -->
+<!-- 				<div class="control-group">
 					<label class="control-label">Est. Time of Theft:</label>
 				    <div class="controls">
 				        <label for="option1">Morning</label>
@@ -76,11 +129,12 @@
 				        </div>
 
 				    </div>
-				</div>            
+				</div>        -->     
+				
 				
 				<input type="hidden" disabled="disabled" id="inputLat" value="">
 				<input  disabled="disabled" type="hidden" id="inputLng" value="">
-			</form> -->
+			</form>
 
 
 
