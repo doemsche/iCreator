@@ -10,4 +10,4 @@ Template.incidentItem.events
 		point = new google.maps.LatLng(incident.lat, incident.lng)
 		window.map.panTo(point)
 
-		Session.set 'growl-view', t.data._id
+		# Session.set 'growl-view', t.data._id

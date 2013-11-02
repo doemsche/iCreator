@@ -42,40 +42,13 @@ Template.incidentsList.events
 	'click #start-now': (e) ->
 		$el = $('.nav .pull-right')
 		I_animate($el, {
-			cycle: 3,
+			cycle: 4,
 			property:'backgroundColor',
 			time:300,
 			startColor:'rgb(0,0,0,0)',
 			endColor:'rgb(95,195,95)'
 		})
-		#$('#map-container').css('backgroundColor','red')
-		# $el.animate
-		# 	backgroundColor: "rgb(95,195,95)"
-		# 	,300
-		# 	,->
-		# 		$el.animate
-		# 			backgroundColor: "rgb(0,0,0,0)"
-		# 			,300
-		# 			,->
-		# 				$el.animate
-		# 					backgroundColor: "rgb(95,195,95)"
-		# 					,300
-		# 					,->
-		# 						$el.animate
-		# 							backgroundColor: "rgb(0,0,0,0)"
-		# 							,300
-		# 							,->
-		# 								$el.animate
-		# 									backgroundColor: "rgb(95,195,95)"
-		# 									,300
-		# 									,->
-		# 										$el.animate
-		# 											backgroundColor: "rgb(0,0,0,0)"
-		# 											,300
-
-
-
-
+	
 	'click .map-tab': (e) ->
 		geocoder = new google.maps.Geocoder()
 		geocoder.geocode
