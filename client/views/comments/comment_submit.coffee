@@ -1,14 +1,15 @@
 Template.commentSubmit.events
-	'submit form': (e, template) ->
-		e.preventDefault()
-		
-		$body = $(e.target).find('[name=body]')
-		comment =
-			body: $body.val(),
-			incidentId:  Session.get 'currentIncidentId'
+	'keydown' : (e) ->
+		if e.which is 13
+			unless e.shiftKey
+				e.preventDefault()
+				comment =
+					body: e.target.value,
+					incidentId:  Session.get 'currentIncidentId'
 
-		Meteor.call 'comment', comment, (error, commentId) ->
-			if error
-				Errors.throw error.reason
-			else
-				$body.val ""
+				Meteor.call 'comment', comment, (error, commentId) ->
+					if error
+						Errors.throw error.reason
+					else
+						e.target.value = ""		
+		

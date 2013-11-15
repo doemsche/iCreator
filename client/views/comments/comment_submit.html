@@ -1,15 +1,8 @@
 <template name="commentSubmit">
-  <form name="comment" class="comment-form">
-    <div class="control-group">
-        <div class="controls">
-            <label for="body">Comment on this Incident</label>
-            <textarea name="body" style="width:95%;"></textarea>
+    <li class="comments-list-item">
+        <img class="gravatar-middle" src="{{gravatar}}" style="float:left;"/>
+        <div class="comment-content">
+            <input class="comment-input" name="body" placeholder="Comment on this Incident" />
         </div>
-    </div>
-    <div class="control-group">
-        <div class="controls">
-            <button type="submit" class="btn">Add Comment</button>
-        </div>
-    </div>
-  </form>
+    </li>
 </template>

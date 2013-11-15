@@ -2,16 +2,16 @@
 <template name="header">
   <h3 class="muted">Social Map für Velo-Bestohlene</h3>
   <div class="navbar">
-    <div class="navbar-inner">
+    <div class="navbar-inner ">
       <div class="container">
 
         <ul class="nav">
-          <li><a href="/">Home</a></li>
-          <li>
+          <li class="{{tabClassName 'home'}}"><a href="/">Home</a></li>
+          <li class="{{tabClassName 'about'}}">
             <a href="{{aboutPagePath}}">About</a>
           </li>
           {{#if currentUser }}
-          <li>
+          <li class="{{tabClassName 'profile'}}">
               <a href="{{userProfilePath user}}">
                 Profile
               </a>

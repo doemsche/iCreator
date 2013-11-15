@@ -1,11 +1,12 @@
 <template name="comment">
-  <li class="comments-list-item">
-  	<div class="bubble">
-	    <h4>
-	      <span class="author">{{author}}</span>
-	      <span class="date">on {{submittedText}}</span>
-	    </h4>
-	    <p>{{body}}</p>
-	</div>
-  </li>
+	<li class="comments-list-item">
+		<img class="gravatar-middle" src="{{gravatar}}" style="float:left;"/>
+		<div class="comment-content">
+			<span class="author">{{author}}: </span>
+			<span class="body">{{body}}</span>
+			<div>
+				<span class="date">{{toDate submitted}}</div>
+			</div>
+		</div>
+	</li>
 </template>

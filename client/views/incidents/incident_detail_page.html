@@ -1,72 +1,94 @@
 <template name="incidentDetailPage">
 	<div class="row">
+		<div class="span12 detail-title"></div>
 		<div class="span5">
-			<div id="previewDetail-container" style="padding:3px; background-color:rgb(212,212,212); border-radius:5px;">
-				<div class="bg-light">
-					{{#with incident}}
+			<div id="previewDetail-container">
+				<div class="my-title-modal">
+					<div class="modal-header">
 						<h3 class="preview-title">Velo Diebstahl</h3>
-						<ul class="preview-list">
-							{{#if brand}}
-								<li class="preview-list-item brand">
-									<i class="icon-tag"></i> Marke: {{brand}}
-								</li>
-							{{/if}}
-
-							{{#if color}}
-								<li class="preview-list-item color">
-									
-									<div style="float:left;">	
-										<div style="float:left;"><i class="icon-tint"></i> Farbe:</div>
-										<div class="color-box" style="background-color:{{color}}; float:left; margin-left:5px;"></div>
-									</div>
-								</li>
-							{{/if}}
-
-							{{#if story}}
-								<li class="preview-list-item story" style="clear:both; margin: 20px 0 0 0;">
-									<i class="icon-user"></i> {{author}}: <i>{{story}}</i>
-								</li>
-							{{/if}}
-
-							{{#if date}}
-								<li class="preview-list-item date">
-									<i class="icon-calendar"></i> {{date}}
-								</li>
-							{{/if}}
-
-							{{#if timeStart}}
-								{{#if timeEnd}}
-									<li class="preview-list-item timeStart">
-										<i class="icon-time"></i>{{timeStart}} - {{timeEnd}}
+					</div>
+					<div class="modal-body">
+						{{#with incident}}
+							<ul class="preview-list">
+								{{#if brand}}
+									<li class="preview-list-item brand">
+										Marke: {{brand}}
 									</li>
 								{{/if}}
-							{{/if}}
-						</ul>
-					{{/with}}
-					<div id="map-container" class="map-detail">
+
+								{{#if color}}
+									<li class="preview-list-item color">
+										
+										<div style="float:left;">	
+											<div style="float:left;">Farbe:</div>
+											<div class="color-box" style="background-color:{{color}}; float:left; margin-left:5px;"></div>
+										</div>
+									</li>
+								{{/if}}
+
+								{{#if story}}
+									<li class="preview-list-item story" style="clear:both; margin: 20px 0 0 0;">
+										{{author}}: <i>{{story}}</i>
+									</li>
+								{{/if}}
+
+								{{#if date}}
+									<li class="preview-list-item date">
+										{{date}}
+									</li>
+								{{/if}}
+
+								{{#if timeStart}}
+									{{#if timeEnd}}
+										<li class="preview-list-item timeStart">
+											{{timeStart}} - {{timeEnd}}
+										</li>
+									{{/if}}
+								{{/if}}
+							</ul>
+						{{/with}}
+					</div>
+					<div id="map-container" class="map-detail" style="margin:10px;">
 						{{> map_detail }}
 					</div>
-					<p>
+					<div class="modal-footer">
 						<a href="{{incidentsListPath}}" class="btn btn-primary">Back to map</a>
 						{{#if isEditable}}
 							{{#with incident}}	
 								<a href="{{incidentEditPath this}}" class="btn btn-primary">Edit Incident</a>
 							{{/with}}
 						{{/if}}
-					</p>
+					</div>
 				</div>
 			</div>		
 		</div>
 		<div class="span7">
-			{{#if currentUser}}
-				{{>commentSubmit}}
-			{{else}}
-				Please log in to make comments to incidents
-			{{/if}}
+			<div class="my-title-modal">
+				{{#with incidentUser}}
+					<div class="modal-body">
+						<ul>
+							<li>{{username}}</li>
+							<li>{{profile.address}}</li>
+							<li>{{profile.location}}</li>
+							<li>{{profile.firstname}} {{profile.name}}</li>
+						</ul>
+					</div>
+
+					<div class="modal-footer">
+						<a href="mailto:{{profile.email}}" class="btn btn-primary">Send Mail</a>
+					</div>
+				{{/with}}
+			</div>
+			<br/>
 			<ul class="comments-list">
-		      {{#each comments}}
-				{{>comment}}
-		      {{/each}}
+				{{#if currentUser}}
+					{{>commentSubmit}}
+				{{else}}
+					Please log in to make comments to incidents
+				{{/if}}
+				{{#each comments}}
+					{{>comment}}
+				{{/each}}
 		    </ul>
 		</div>
 	</div>
