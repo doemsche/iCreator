@@ -7,7 +7,10 @@ Template.incidentDetailPage.helpers
 
 	isEditable: ->
 		incident = Incidents.findOne( Session.get 'currentIncidentId' )
-		incident.userId is Meteor.userId()
+		if @ownsDocument Meteor.userId(), incident
+			true
+		else
+			false
 
 
 

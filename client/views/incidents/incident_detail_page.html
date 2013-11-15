@@ -46,7 +46,14 @@
 					<div id="map-container" class="map-detail">
 						{{> map_detail }}
 					</div>
-					<p><a href="{{incidentsListPath}}" class="btn btn-primary">Back to map</a></p>
+					<p>
+						<a href="{{incidentsListPath}}" class="btn btn-primary">Back to map</a>
+						{{#if isEditable}}
+							{{#with incident}}	
+								<a href="{{incidentEditPath this}}" class="btn btn-primary">Edit Incident</a>
+							{{/with}}
+						{{/if}}
+					</p>
 				</div>
 			</div>		
 		</div>

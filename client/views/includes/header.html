@@ -10,17 +10,18 @@
           <li>
             <a href="{{aboutPagePath}}">About</a>
           </li>
-
+          {{#if currentUser }}
+          <li>
+              <a href="{{userProfilePath user}}">
+                Profile
+              </a>
+          </li>
+          {{/if}}
         </ul>
         <ul class="nav pull-right">
           <li><img class="gravatar-small" src="{{gravatar}}"/></li>
           <li>{{loginButtons}}</li>
            {{#if currentUser}}
-            <li>
-                <a href="{{userProfilePath user}}">
-                  Profile
-                </a>
-            </li>
             <li>
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">?</a>
               <ul class="dropdown-menu">
