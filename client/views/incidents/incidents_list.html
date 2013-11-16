@@ -60,14 +60,16 @@
 	              </div>
             </div>
 			</div>
+		</div>
+		<div class="span4" id="gui-state-container">
+			<div class="title-container">
+			{{>incidentDetailPreview}}
+	        </div>
+        </div>
+        <div class="span12" style="max-width:1000px;">
 			<div id="map-container" class="my-title-modal">
 				{{> map }}
 			</div>
-		</div>
-		<div class="span4">
-			<div style="margin:25px 0 0 0">
-			{{>incidentDetailPreview}}
-	        </div>
         </div>
 	</div>
 	{{/unless}}		

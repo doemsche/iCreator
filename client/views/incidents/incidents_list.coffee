@@ -4,6 +4,12 @@ Template.incidentsList.helpers
 
 Template.incidentsList.rendered = ->
 	$('#create-incident').popover({trigger:'hover'})
+	if Session.get 'gui-state' 
+		$('#title-modal').hide()
+		$('#gui-state-container').addClass('gui-state-2')
+	else
+		$('#title-modal').sow()
+		$('#gui-state-container').removeClass('gui-state-2')
 
 
 Template.incidentsList.events
@@ -46,7 +52,7 @@ Template.incidentsList.events
 			property:'backgroundColor',
 			time:300,
 			startColor:'rgb(0,0,0,0)',
-			endColor:'rgb(95,195,95)'
+			endColor:'#18bc9c'
 		})
 	
 	'click .map-tab': (e) ->
@@ -60,12 +66,21 @@ Template.incidentsList.events
 	'click #title-modal-close' : (e) ->
 		e.preventDefault()
 		$('#title-modal').hide()
+		$('#gui-state-container').addClass('gui-state-2');
+		Session.set('gui-state', 1)
+
+	'click #gui-state-2-close' : (e) ->
+		e.preventDefault()
+		$('#title-modal').show()
+		$('#gui-state-container').removeClass('gui-state-2');
+		Session.set('gui-state', 0)
+
 
 	'click #create-incident': (e) ->
 		$el = $('#map-container')
 		#$('#map-container').css('backgroundColor','red')
 		$el.animate
-			backgroundColor: "rgb(95,195,95)"
+			backgroundColor: "#18bc9c"
 			,300
 			,->
 				$el.animate
@@ -73,7 +88,7 @@ Template.incidentsList.events
 					,300
 					,->
 						$el.animate
-							backgroundColor: "rgb(95,195,95)"
+							backgroundColor: "#18bc9c"
 							,300
 							,->
 								$el.animate
@@ -81,7 +96,7 @@ Template.incidentsList.events
 									,300
 									,->
 										$el.animate
-											backgroundColor: "rgb(95,195,95)"
+											backgroundColor: "#18bc9c"
 											,300
 
 

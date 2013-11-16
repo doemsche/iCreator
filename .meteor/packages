@@ -10,6 +10,6 @@ router
 accounts-ui-bootstrap-dropdown
 coffeescript
 accounts-password
-bootstrap
 gravatar
 errors
+bootstrap

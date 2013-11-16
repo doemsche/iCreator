@@ -23,9 +23,15 @@ Handlebars.registerHelper 'toDate', (unixTimeStamp) ->
 
 
 Handlebars.registerHelper 'gravatar', ->
-		'/images/gravatar.jpg'
+		'/images/gravatar.png'
 		# unless Meteor.user().profile.email
 			
 		# 	'/images/gravatar.jpg'
 		# else
 		# 	Gravatar.imageUrl(Meteor.user().profile.email)
+
+Handlebars.registerHelper 'guistate', ->
+	unless Session.get 'gui-state'
+		Session.get 'gui-state'
+	else
+		1

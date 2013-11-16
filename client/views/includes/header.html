@@ -1,39 +1,29 @@
 
 <template name="header">
-  <h3 class="muted">Social Map für Velo-Bestohlene</h3>
-  <div class="navbar">
-    <div class="navbar-inner ">
-      <div class="container">
-
-        <ul class="nav">
-          <li class="{{tabClassName 'home'}}"><a href="/">Home</a></li>
-          <li class="{{tabClassName 'about'}}">
-            <a href="{{aboutPagePath}}">About</a>
-          </li>
-          {{#if currentUser }}
-          <li class="{{tabClassName 'profile'}}">
-              <a href="{{userProfilePath user}}">
-                Profile
-              </a>
-          </li>
-          {{/if}}
-        </ul>
-        <ul class="nav pull-right">
-          <li><img class="gravatar-small" src="{{gravatar}}"/></li>
-          <li>{{loginButtons}}</li>
-           {{#if currentUser}}
-            <li>
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">?</a>
-              <ul class="dropdown-menu">
-                <div class="help-container">
-                <span class="blue-txt">Help issue:</span>
-                <p>Click on the <i class="icon-map-marker icon-3"></i> Marker of an incident in the map below to see details about the incident.</p>
-                <p>DoubleClick on the location of your incident on the <i class="icon-map icon-3"></i> map to create an incident</p>  
-              </div>
-              </ul>
-            </li>
-          {{/if}}
-        </ul>
-    </div>
+<h3 class="muted">Social Map für Velo-Bestohlene</h3>
+<div class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav navbar-nav">
+      <li class="{{tabClassName 'home'}}">
+        <a href="/">Home</a>
+      </li>
+      <li class="{{tabClassName 'about'}}">
+        <a href="{{aboutPagePath}}">About</a>
+      </li>
+        {{#if currentUser }}
+        <li class="{{tabClassName 'profile'}}">
+          <a href="{{userProfilePath user}}">
+            Profile
+          </a>
+        </li>
+        {{/if}}
+    </ul>
+    <ul class="nav navbar-nav  pull-right">
+      <li><img class="gravatar-login" src="{{gravatar}}" /></li>
+      <li>{{loginButtons}}</li>
+    </ul>
   </div>
+</div>
+
+
 </template>
