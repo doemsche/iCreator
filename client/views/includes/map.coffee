@@ -43,6 +43,16 @@ Template.map.rendered = ->
 		)
 		document.body.appendChild(fragment);
 		$('#myModal').modal()
+
+	Deps.autorun ->
+		Incidents.find().forEach (incident) ->		
+			point = new google.maps.LatLng(incident.lat, incident.lng)
+			marker = new google.maps.Marker(
+				position: point
+			)
+			marker.setMap(map)
+			#
+			addClickEventListener(marker)
 		
 
 
