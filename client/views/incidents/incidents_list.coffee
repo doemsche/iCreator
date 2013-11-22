@@ -8,7 +8,7 @@ Template.incidentsList.rendered = ->
 		$('#title-modal').hide()
 		$('#gui-state-container').addClass('gui-state-2')
 	else
-		$('#title-modal').sow()
+		$('#title-modal').show()
 		$('#gui-state-container').removeClass('gui-state-2')
 
 

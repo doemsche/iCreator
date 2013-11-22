@@ -25,15 +25,15 @@ Template.map.rendered = ->
 			window.map.setCenter results[0].geometry.location
 			window.map.setZoom zoom
 
-	Incidents.find().forEach (incident) ->		
-		point = new google.maps.LatLng(incident.lat, incident.lng)
-		marker = new google.maps.Marker(
-			position: point
-		)
-		marker.setMap(map)
-		#
-		addClickEventListener(marker)
-		
+	Deps.autorun ->
+		Incidents.find().forEach (incident) ->		
+			point = new google.maps.LatLng(incident.lat, incident.lng)
+			marker = new google.maps.Marker(
+				position: point
+			)
+			marker.setMap(map)
+			#
+			addClickEventListener(marker)
 
 	google.maps.event.addListener map, "dblclick", (event) ->
 		Session.set 'tmp-lat', event.latLng.lat()
@@ -44,15 +44,8 @@ Template.map.rendered = ->
 		document.body.appendChild(fragment);
 		$('#myModal').modal()
 
-	Deps.autorun ->
-		Incidents.find().forEach (incident) ->		
-			point = new google.maps.LatLng(incident.lat, incident.lng)
-			marker = new google.maps.Marker(
-				position: point
-			)
-			marker.setMap(map)
-			#
-			addClickEventListener(marker)
+	#Deps.autorun putIncidentsOnMap
+
 		
 
 

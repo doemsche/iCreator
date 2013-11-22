@@ -2,11 +2,13 @@ Template.incidentDetailPage.helpers
 	incident: ->
 		Incidents.findOne( Session.get 'currentIncidentId' )
 
-	incidentUser: ->
-		Meteor.users.findOne()
+	incidentUserProfile: ->
+		incidentUserId = Incidents.findOne(  Session.get('currentIncidentId') ).userId
+
+		Meteor.users.findOne( incidentUserId )
 
 	comments: ->
-		Comments.find incidentId: Session.get 'currentIncidentId'
+		Comments.find( incidentId: Session.get 'currentIncidentId' )
 
 	isEditable: ->
 		incident = Incidents.findOne( Session.get 'currentIncidentId' )
