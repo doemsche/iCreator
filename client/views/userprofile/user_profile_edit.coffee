@@ -4,6 +4,10 @@ Template.userProfileEdit.helpers
 
 
 Template.userProfileEdit.events
+	'click #userprofile-cancel': (e)->
+		e.preventDefault()
+		Meteor.Router.to "userProfile", Meteor.user()
+
 	'click #userprofile-update': (e) ->
 		e.preventDefault()
 		userProfile=

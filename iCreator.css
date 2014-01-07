@@ -495,7 +495,22 @@ background-color: #f5f5f5;
 	}
 }
 
+.user-profile,
+.user-profile-info{
+	margin: 0;
+}
+.user-profile li,
+.user-profile-info li{
+	list-style: none;
+}
+
+.minor-info{
+	color: #666;
+	font-style: italic;
+}
 
 
 
-
+.user-profile-bold span{
+	font-weight: bold;
+}

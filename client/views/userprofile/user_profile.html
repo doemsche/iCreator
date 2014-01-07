@@ -1,16 +1,27 @@
 <template name="userProfile">
-	
-	{{#with user}}
-	<ul>
-		<li>Username: {{username}}</li>
-	</ul>
-	{{/with}}
-	{{#with user.profile}}
-	<ul>
-		<li>Location: {{location}}</li>
-		<li>Email: {{email}}</li>
-		<li>Address: {{address}}</li>
-	</ul>
-	{{/with}}
-	<i class="icon-edit icon-3"></i><a href="{{userProfileEditPath user}}" class="edit-user">edit</a>
+	<div class="row">
+		<div class="span7">
+			<div class="my-title-modal">
+				<div class="modal-header">
+					<h3 class="">Benutzerprofil</h3>
+				</div>
+
+					<div class="modal-body">
+						<ul class="user-profile">
+								<li class="user-profile-bold">Benutzername: <span>{{user.username}}</span></li>
+								<li class="user-profile-bold">Ort: <span>{{user.profile.location}}</span></li>
+								<li class="user-profile-bold">Email: <span>{{user.profile.email}}</span></li>
+								<li class="user-profile-bold">Adresse: <span>{{user.profile.address}}</span></li>
+							
+						</ul>
+						<br/>
+						<a  class="btn btn-primary profile-edit" href="{{userProfileEditPath user}}">Edit </a>
+						
+					</div>
+
+			</div>
+		</div>
+		<div class="span5">
+		</div>
+	</div>
 </template>

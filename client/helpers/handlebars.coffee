@@ -16,10 +16,18 @@ Handlebars.registerHelper 'tabClassName', (route) ->
 
 Handlebars.registerHelper 'toDate', (unixTimeStamp) ->
 	date =  new Date(unixTimeStamp)
+	addZero = (input) ->
+		if input < 9
+			return ("0"+input).toString()
+		else
+			return input.toString()
 
-	return date.getDate() + 
-    "." +  date.getMonth() +
-    "." +  date.getFullYear();
+	day = addZero(date.getDate())
+	month = addZero( (date.getMonth() + 1) )
+	year = date.getFullYear().toString()
+
+	dateFormatted = day + "/" + month + "/" + year
+	return dateFormatted;
 
 
 Handlebars.registerHelper 'gravatar', ->

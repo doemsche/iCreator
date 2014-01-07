@@ -1,38 +1,42 @@
 <template name="userProfileEdit">
+	<div class="row">
+		<div class="span7">
+			<div class="my-title-modal">
+				<div class="modal-header">
+					<h3 class="">Benutzerprofil bearbeiten</h3>
+				</div>
+					<div class="modal-body">
+						<ul class="user-profile">
+							<li>
+								<div class="control-group">
+									<div class="controls">
+										<input name="title" type="text"  id="profile-location" value="{{user.profile.location}}" placeholder="Wo wohnst Du?"/>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="control-group">
+									<div class="controls">
+										<input name="title" type="text"  id="profile-email" value="{{user.profile.email}}" placeholder="Deine Email-Adresse?"/>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="control-group">
+									<div class="controls">
+										<input name="title" type="text"  id="profile-address" value="{{user.profile.address}}" placeholder="Wie lautet Deine Adresse?"/>
+									</div>
+								</div>
+							</li>							
+						</ul>
+						<input id="userprofile-update" type="submit" value="Update" class="btn btn-primary submit"/>
+						<input id="userprofile-cancel" type="submit" value="Cancel" class="btn btn-default submit"/>
+					</div>
+			</div>
+		</div>
+		<div class="span5">
+		</div>
+	</div>
 
-	{{#with user}}
-	<ul>
-		<li>Username: {{username}}</li>
-	</ul>
-	{{/with}}
-
-	{{#with user.profile}}
-	<ul>
-		<li>
-			<div class="control-group">
-				<div class="controls">
-					<i class="icon-user"></i>
-					<input name="title" type="text"  id="profile-location" value="{{location}}" placeholder="where do you live"/>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="control-group">
-				<div class="controls">
-					<i class="icon-mail"></i>
-					<input name="title" type="text"  id="profile-email" value="{{email}}" placeholder="your email"/>
-				</div>
-			</div>
-		</li>
-		<li>
-			<div class="control-group">
-				<div class="controls">
-					<i class="icon-user"></i>
-					<input name="title" type="text"  id="profile-address" value="{{address}}" placeholder="what is your address"/>
-				</div>
-			</div>
-		</li>
-	</ul>
-	{{/with}}
-	<input id="userprofile-update" type="submit" value="Update" class="btn btn-primary submit"/>
+	
 </template>
